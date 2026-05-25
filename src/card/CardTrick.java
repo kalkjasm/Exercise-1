@@ -5,7 +5,6 @@
 package card;
 
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  * A class that fills a magic hand of 7 cards with random Card Objects
@@ -17,7 +16,7 @@ public class CardTrick {
     
     public static void main(String[] args)
     {
-        Scanner k=new Scanner(System.in);
+        
         Random rand=new Random();
         Card[] magicHand = new Card[7];
         
@@ -37,30 +36,19 @@ public class CardTrick {
         for(Card m:magicHand){
             System.out.println(m.getSuit()+" "+m.getValue());
         }
-        
-        System.out.print("Enter the Card Value from 1-13: ");
-        int value_choice=k.nextInt();
-//        System.out.println();
-        System.out.print("Card Suit options are: \n1.Hearts \n2.Diamonds \n3.Spade \n4.Club \nEnter an option for suit from 1-4: ");
-        int suit_choice=k.nextInt()-1;
-        Card user_card=new Card();
-        user_card.setValue(value_choice);
-        user_card.setSuit(Card.SUITS[suit_choice]);
         boolean card_found = false;
         Card luckyCard=new Card();
         luckyCard.setValue(2);
-        luckyCard.setSuit(Cards.SUITS[3]);
+        luckyCard.setSuit(Card.SUITS[3]);
         for(Card c :magicHand ) {
-            if(user_card.getValue()==c.getValue() &&  user_card.getSuit()==c.getSuit()){
+            if(luckyCard.getValue()==c.getValue() &&  luckyCard.getSuit()==c.getSuit()){
                 card_found=true;
          }
         }
         if(card_found==true)
-            System.out.println("The card is in the magic hand"); 
+            System.out.println("Won!! The card is in the magic hand"); 
         else
-          System.out.println("The card was not found in the magic hand");  
-        k.close();
-        
+          System.out.println("Lost!! The card was not found in the magic hand");        
        
         
         
