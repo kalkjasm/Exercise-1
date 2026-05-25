@@ -47,6 +47,9 @@ public class CardTrick {
         user_card.setValue(value_choice);
         user_card.setSuit(Card.SUITS[suit_choice]);
         boolean card_found = false;
+        Card luckyCard=new Card();
+        luckyCard.setValue(2);
+        luckyCard.setSuit(Cards.SUITS[3]);
         for(Card c :magicHand ) {
             if(user_card.getValue()==c.getValue() &&  user_card.getSuit()==c.getSuit()){
                 card_found=true;
